@@ -41,14 +41,17 @@ colStrand = cols[3]
 
 #get the range means/peaks
 #map method would be derived from: colPeak = list(map(operator.sub, colEnd, colStart)). import operator must be added if this is used.
-colPeak = [int(round(float((i + j)/2))) for i, j in zip(colEnd, colStart)]
+colPeak1 = [int(float((i + j)/2)) for i, j in zip(colEnd, colStart)]
+colPeak2 = [i + 1 for i in colPeak1]
 
-colStarts = list(map(str, colStart))
-colEnds = list(map(str, colEnd))
-colPeaks = list(map(str, colPeak))
+#change to str
+#colStarts = list(map(str, colStart))
+#colEnds = list(map(str, colEnd))
+colPeakStart = list(map(str, colPeak1))
+colPeakEnd = list(map(str, colPeak2))
 
 for i in range(MAXLINES):
 #    sys.stdout.write(colChr[i] + "\t" + colStart[i] + "\t" + colEnd[i] + "\t" + colPeak[i] + "\n")    
-     sys.stdout.write(str(colChr[i]) + "\t" + str(colStarts[i]) + "\t" + str(colEnds[i]) + "\t" + str(colStrand[i]) + "\t" + str(colPeaks[i]) + "\n")    
+     sys.stdout.write(str(colChr[i]) + "\t" + str(colPeakStart[i]) + "\t" + str(colPeakEnd[i]) + "\t" + str(colStrand[i]) + "\n")    
     
     
