@@ -49,6 +49,7 @@ colPeaks = list(map(str, colPeak))
 
 for i in range(MAXLINES):
 #    sys.stdout.write(colChr[i] + "\t" + colStart[i] + "\t" + colEnd[i] + "\t" + colPeak[i] + "\n")    
-     sys.stdout.write(str(colChr[i]) + "\t" + str(colStarts[i]) + "\t" + str(colEnds[i]) + "\t" + str(colStrand[i]) + "\t" + str(colPeaks[i]) + "\n")    
+     sys.stdout.write(str(colChr[i]) + "\t" + str(colPeaks[i]) + "\n")
+             #str(colChr[i]) + "\t" + str(colStarts[i]) + "\t" + str(colEnds[i]) + "\t" + str(colStrand[i]) + "\t" + str(colPeaks[i]) + "\n")    
     
     
