@@ -24,17 +24,26 @@ parser.add_argument('-i',
 
 args = parser.parse_args()
 
-bedfile = args.i
+if args.i == '-':
+    bedfile = sys.stdin
+else:
+    bedfile = args.i
 
 '''Get data from input file and organize in lists named cols[x], where x is column number starting from 0'''
 MAXCOLS = 9
 MAXLINES = 0
 cols = [[] for _ in range(MAXCOLS)]
-with open(bedfile) as input:
-    for row in csv.reader(input, delimiter='\t'):
+if args.i == '-':
+    for row in csv.reader(bedfile, delimiter='\t'):
         MAXLINES += 1
         for i in range(MAXCOLS):
             cols[i].append(row[i] if i < len(row) else '')
+else:
+    with open(bedfile) as input:
+        for row in csv.reader(input, delimiter='\t'):
+            MAXLINES += 1
+            for i in range(MAXCOLS):
+                cols[i].append(row[i] if i < len(row) else '')
 
 #change nested lists into single lists and change the type from str to int when necessary
 col1 = cols[0]
