@@ -1,2 +1,2 @@
 # mcf7-replication
-Python scripts for Foulk paper repeat.
+Python scripts for John Urban's Foulk paper repeat.
